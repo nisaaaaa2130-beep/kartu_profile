@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_pink"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="14dp"
+        android:gravity="center_horizontal">
+
+        <!-- Hiasan Atas (Bunga & Love) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌸 💖 🌸"
+            android:textSize="18sp"
+            android:layout_marginTop="12dp" />
+
+        <!-- Judul -->
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="♡ Profil Saya ♡"
+            android:textColor="#884A5B"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="17dp" />
+
+        <!-- Foto Profil -->
+        <ImageView
+            android:id="@+id/ivFoto"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/nisa" />
+
+        <!-- Container Form Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌷 Masukkan Data Diri 🌷"
+                android:textColor="#C8A2A8"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Input Nama -->
+            <EditText
+                android:id="@+id/etNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Kamu"
+                android:textColor="#5A3D40"
+                android:textColorHint="#D8B2B8"
+                android:textSize="14sp"
+                android:paddingHorizontal="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Input Email -->
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email Kamu"
+                android:textColor="#5A3D40"
+                android:textColorHint="#D8B2B8"
+                android:textSize="14sp"
+                android:paddingHorizontal="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="4dp" />
+
+            <!-- Input Tahun Lahir -->
+            <EditText
+                android:id="@+id/etTahunLahir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tahun Lahir (mis. 2006)"
+                android:textColor="#5A3D40"
+                android:textColorHint="#D8B2B8"
+                android:textSize="14sp"
+                android:paddingHorizontal="6dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:inputType="number"
+                android:maxLength="4" />
+
+        </LinearLayout>
+
+        <!-- Tombol Aksi Utama (Batal & Simpan) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp">
+
+            <Button
+                android:id="@+id/btnBatal"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Batal"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="#B76E79" />
+
+            <Button
+                android:id="@+id/btnSimpan"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Simpan 💖"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#884A5B" />
+
+        </LinearLayout>
+
+        <!-- Tombol Hapus Data Tersimpan -->
+        <Button
+            android:id="@+id/btnHapusSimpan"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="12dp"
+            android:text="Hapus Data Tersimpan"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:backgroundTint="#A45C68" />
+
+        <!-- Status Data Tersimpan / Validasi -->
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#884A5B"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone" />
+
+        <!-- Tombol Lihat Pengguna -->
+        <Button
+            android:id="@+id/btnLihatPengguna"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Lihat Pengguna"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:backgroundTint="#884A5B" />
+
+    </LinearLayout>
+</ScrollView>
