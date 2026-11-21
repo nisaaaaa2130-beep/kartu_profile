@@ -1,83 +1,61 @@
-# Proyek Kartu Profil — Project Utuh Pertemuan 4–6
+# Proyek Kartu Profil — Pertemuan 9 & 10
 
-Project Android **lengkap dan berdiri sendiri** (gabungan final Pertemuan 4, 5,
-dan 6 Pemrograman Mobile): aplikasi **Kartu Profil** yang sudah interaktif.
+Aplikasi Android **Kartu Profil** (`com.example.belajarmobile`) yang dikembangkan menggunakan **Kotlin**, **XML layout**, **Android Studio**, dan **Gradle**. Pada pengembangan Pertemuan 9 dan 10, proyek ini mencakup fitur kartu profil, penyimpanan data lokal (**SharedPreferences** dan database **Room**), serta pengambilan data daftar pengguna dari internet menggunakan REST API (**Retrofit** + **RecyclerView**).
 
-- Pertemuan 4: struktur project Android + Activity.
-- Pertemuan 5: UI dasar (TextView, EditText, Button, ImageView, LinearLayout,
-  ScrollView, resource strings/colors).
-- Pertemuan 6: event handling & navigasi — tombol **Simpan** membaca nama &
-  email, menampilkan Toast, lalu pindah ke layar kedua (`SecondActivity`)
-  sambil membawa data lewat Intent `putExtra`; tombol **Batal** membersihkan
-  kolom; tekan lama **Simpan** menampilkan petunjuk di teks status.
+## Teknologi & Komponen Utama
+* **Bahasa & UI**: Kotlin dan XML layout (`activity_main.xml`, `activity_second.xml`, `activity_user_list.xml`, `item_user.xml`, serta resource drawable/layout lainnya).
+* **Penyimpanan Lokal**: **SharedPreferences** (penyimpanan preferensi data profil terakhir) dan database lokal **Room** (`AppDatabase.kt`, entitas `Catatan.kt`).
+* **Jaringan & Daftar Data**: **Retrofit**, konverter **Gson**, dan **RecyclerView** (`ApiService.kt`, `RetrofitClient.kt`, `UserAdapter.kt`, `UserListActivity.kt`).
+* **Lingkungan Pengembangan**: Android Studio dengan build sistem Gradle.
 
-Package: `com.example.belajarmobile` • Min SDK 24 • Target/Compile SDK 34
-Gradle 8.7 • Android Gradle Plugin 8.5.2 • Kotlin 2.0.20 • AppCompat 1.7.0
+## Fitur Utama & Alur Pengujian
+* **Form Profil & Validasi**: Mengisi data diri (Nama, Email, Tahun Lahir), membersihkan input lewat tombol **Batal**, menghapus data tersimpan lewat tombol **Hapus Data Tersimpan**, dan menyimpan data ke layar berikutnya (**Tentang Saya**).
+* **Buka Ulang Aplikasi**: Menutup lalu membuka kembali aplikasi untuk memastikan data tersimpan lokal muncul otomatis dan dapat dikelola kembali.
+* **Daftar Pengguna (Retrofit & RecyclerView)**: Membuka halaman **Daftar Pengguna** lewat tombol **Lihat Pengguna** (`UserListActivity`), mengambil data dari endpoint `https://jsonplaceholder.typicode.com/users` menggunakan Retrofit + Gson, lalu menampilkannya di `RecyclerView`.
+* **Penanganan Kondisi Online / Offline**: Menampilkan daftar pengguna saat internet aktif (`onResponse`), serta menampilkan pesan gagal memuat dan `Toast` `"Periksa koneksi internet"` tanpa *crash* saat mode pesawat / tidak ada koneksi (`onFailure`).
 
-## Syarat di komputer yang dipakai
+## Dokumentasi Tangkapan Layar
+1. **Tampilan Awal Form Profil (Kosong)**  
+   ![Tampilan Awal Profil Kosong](dokumentasi-apk/01-profil-awal-kosong.jpg)  
+   Tampilan awal halaman **Profil Saya** dengan tombol **Batal**, **Simpan**, dan **Hapus Data Tersimpan** saat kolom input masih kosong.
 
-- **JDK 17** terpasang (cek: `java -version`).
-- **Android SDK** terpasang (Command-line Tools + platform android-34).
-- HP Android dengan USB debugging aktif — kabel USB **atau** adb wireless.
+2. **Pengisian Form Data Diri**  
+   ![Form Data Diri Terisi](dokumentasi-apk/02-profil-terisi-form.jpg)  
+   Formulir **Profil Saya** setelah diisi data (`Nisa`, `nisssaaa2121@gmail.com`, tahun lahir `2006`).
 
-## Cara menjalankan
+3. **Halaman Kedua — Tentang Saya**  
+   ![Halaman Tentang Saya](dokumentasi-apk/03-tentang-saya.jpg)  
+   Menampilkan informasi tersimpan (`Nisa`, email, dan hasil olahan `20 tahun (Dewasa)`) beserta tombol **Kembali**.
 
-1. Ekstrak ZIP ini, lalu buka folder `proyek-kartu-profil-p4-p6` di VS Code
-   (File → Open Folder). Pastikan folder yang dibuka adalah folder yang berisi
-   `gradlew.bat` — bukan folder di dalamnya.
-2. Hubungkan HP:
-   - USB: colok kabel, ketuk **Izinkan** bila muncul dialog di HP.
-   - Wireless (Android 11+): HP & laptop satu WiFi → Opsi Pengembang →
-     Wireless debugging → `adb pair <IP:port-pairing>` lalu
-     `adb connect <IP:port-koneksi>`.
-3. Cek HP terbaca:
+4. **Data Tersimpan Saat Aplikasi Dibuka Ulang**  
+   ![Data Tersimpan Saat Dibuka Ulang](dokumentasi-apk/04-data-tersimpan-buka-ulang.jpg)  
+   Saat aplikasi dibuka kembali, data tersimpan (`Nisa` dan `nisssaaa2121@gmail.com`) muncul kembali otomatis.
 
-   ```
-   adb devices
-   ```
+5. **Tampilan Profil dengan Tombol Lihat Pengguna**  
+   ![Profil dengan Tombol Lihat Pengguna](dokumentasi-apk/05-profil-ada-tombol-lihat-pengguna.jpg)  
+   Tampilan halaman **Profil Saya** yang sudah memiliki tombol **Lihat Pengguna** untuk membuka daftar pengguna dari API.
 
-   Statusnya harus `device`.
-4. Build & pasang dari terminal VS Code (PowerShell):
+6. **Daftar Pengguna (Mode Online)**  
+   ![Daftar Pengguna Online](dokumentasi-apk/06-daftar-pengguna-online.jpg)  
+   Halaman **Daftar Pengguna** saat koneksi internet aktif, menampilkan data pengguna (`Leanne Graham`, `Ervin Howell`, `Clementine Bauch`, dst.).
 
-   ```powershell
-   .\gradlew installDebug
-   ```
+7. **Daftar Pengguna (Mode Offline / Tanpa Koneksi)**  
+   ![Daftar Pengguna Offline Error](dokumentasi-apk/07-daftar-pengguna-offline-error.jpg)  
+   Halaman **Daftar Pengguna** saat mode pesawat / tidak ada internet, menampilkan pesan gagal memuat (`Unable to resolve host "jsonplaceholder.typicode.com"`) dan `Toast` `"Periksa koneksi internet"`.
 
-   (Git Bash/macOS/Linux: `./gradlew installDebug`)
-5. Aplikasi **Kartu Profil** terpasang di HP — buka dari daftar aplikasi.
+## Tujuan & Perbedaan Penyimpanan Lokal (SharedPreferences vs Room)
+Tujuan bagian ini adalah menjelaskan fungsi dua pendekatan penyimpanan lokal yang digunakan di aplikasi agar jelas kapan masing-masing dipakai:
 
-> **Build pertama lebih lama** karena Gradle 8.7 dan semua dependency
-> diunduh dulu — pastikan ada internet. Build berikutnya jauh lebih cepat.
+| Aspek | SharedPreferences | Room Database (`AppDatabase.kt` & `Catatan.kt`) |
+| :--- | :--- | :--- |
+| **Bentuk Data** | Pasangan kunci–nilai (*key–value*) sederhana | Tabel terstruktur berbasis SQLite (`@Entity(tableName = "catatan")`) |
+| **Kegunaan di Proyek** | Menyimpan data profil terakhir agar bisa dimuat ulang saat aplikasi dibuka kembali dan dihapus lewat tombol **Hapus Data Tersimpan** | Menyimpan dan mengelola data catatan lokal secara terstruktur di database lokal |
+| **Pola Pembaruan** | Menimpa nilai pada kunci yang sama | Menambah/mengelola baris data terstruktur pada tabel |
+| **Kebutuhan Komponen** | Ringkas, cukup objek `SharedPreferences` dan editor (`edit()...apply()`) | Memerlukan *Entity* (`Catatan.kt`), *DAO*, dan *Database* (`AppDatabase.kt`) |
+| **Kapan Dipilih** | Data preferensi ringan tunggal yang sering dibaca cepat | Data terstruktur atau banyak entri yang butuh pengelolaan rapi berbasis tabel |
 
-## Bila muncul "SDK location not found"
-
-Buat file `local.properties` di folder akar project (sejajar `gradlew.bat`)
-berisi satu baris yang menunjuk folder SDK di komputer itu, contoh Windows:
-
-```
-sdk.dir=C\:\\Users\\NamaKamu\\AppData\\Local\\Android\\Sdk
-```
-
-Contoh Linux: `sdk.dir=/home/namakamu/Android/Sdk`
-
-## Alur uji di HP
-
-1. Isi nama dan email → tekan **Simpan** → muncul Toast, lalu pindah ke layar
-   kedua yang menampilkan nama & email tadi.
-2. Tekan **Kembali** (atau Back di HP) → kembali ke formulir.
-3. Tekan **Batal** → kedua kolom kosong lagi.
-4. Tekan **lama** tombol Simpan → petunjuk muncul di teks status.
-
-Catatan: `SecondActivity` tidak bisa lagi dibuka lewat
-`adb shell am start` seperti di Pertemuan 5 — memang disengaja karena
-`android:exported="false"`; layar kedua hanya dibuka dari dalam aplikasi
-lewat Intent.
-
-## Troubleshooting ringkas
-
-- `The term '.\gradlew' is not recognized` → terminal belum berada di folder
-  akar project (yang ada `gradlew.bat`-nya). `cd` ke folder itu dulu.
-- `No connected devices` → ulangi langkah 2–3; pada wireless, port berubah
-  setiap Wireless debugging dinyalakan ulang.
-- `Unsupported class file major version` → JDK yang terbaca bukan 17.
-- Aplikasi crash → jalankan `adb logcat *:E`, cari baris `FATAL EXCEPTION`.
+## Cara Menjalankan Aplikasi
+1. Buka folder proyek (`proyek-kartu-profil-p4-p6` / `com.example.belajarmobile`) di **Android Studio**.
+2. Tunggu proses *Gradle sync* selesai hingga tidak ada *error* konfigurasi.
+3. Hubungkan HP Android (dengan *USB debugging* aktif) atau jalankan emulator di Android Studio (seperti *Medium Phone*).
+4. Klik tombol **Run** (ikon *play* hijau) di Android Studio untuk membangun (*build*) dan menginstal aplikasi ke perangkat/emulator.
