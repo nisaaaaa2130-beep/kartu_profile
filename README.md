@@ -16,31 +16,31 @@ Aplikasi Android **Kartu Profil** (`com.example.belajarmobile`) yang dikembangka
 
 ## Dokumentasi Tangkapan Layar
 1. **Tampilan Awal Form Profil (Kosong)**  
-   ![Tampilan Awal Profil Kosong](dokumentasi-apk/01-profil-awal-kosong.jpg)  
+   ![Tampilan Awal Profil Kosong](dokumentasi-apk/01-profil-awal-kosong.jpeg)  
    Tampilan awal halaman **Profil Saya** dengan tombol **Batal**, **Simpan**, dan **Hapus Data Tersimpan** saat kolom input masih kosong.
 
 2. **Pengisian Form Data Diri**  
-   ![Form Data Diri Terisi](dokumentasi-apk/02-profil-terisi-form.jpg)  
+   ![Form Data Diri Terisi](dokumentasi-apk/02-profil-terisi-form.jpeg)  
    Formulir **Profil Saya** setelah diisi data (`Nisa`, `nisssaaa2121@gmail.com`, tahun lahir `2006`).
 
 3. **Halaman Kedua — Tentang Saya**  
-   ![Halaman Tentang Saya](dokumentasi-apk/03-tentang-saya.jpg)  
+   ![Halaman Tentang Saya](dokumentasi-apk/03-tentang-saya.jpeg)  
    Menampilkan informasi tersimpan (`Nisa`, email, dan hasil olahan `20 tahun (Dewasa)`) beserta tombol **Kembali**.
 
 4. **Data Tersimpan Saat Aplikasi Dibuka Ulang**  
-   ![Data Tersimpan Saat Dibuka Ulang](dokumentasi-apk/04-data-tersimpan-buka-ulang.jpg)  
+   ![Data Tersimpan Saat Dibuka Ulang](dokumentasi-apk/04-data-tersimpan-buka-ulang.jpeg)  
    Saat aplikasi dibuka kembali, data tersimpan (`Nisa` dan `nisssaaa2121@gmail.com`) muncul kembali otomatis.
 
 5. **Tampilan Profil dengan Tombol Lihat Pengguna**  
-   ![Profil dengan Tombol Lihat Pengguna](dokumentasi-apk/05-profil-ada-tombol-lihat-pengguna.jpg)  
+   ![Profil dengan Tombol Lihat Pengguna](dokumentasi-apk/05-profil-ada-tombol-lihat-pengguna.jpeg)  
    Tampilan halaman **Profil Saya** yang sudah memiliki tombol **Lihat Pengguna** untuk membuka daftar pengguna dari API.
 
 6. **Daftar Pengguna (Mode Online)**  
-   ![Daftar Pengguna Online](dokumentasi-apk/06-daftar-pengguna-online.jpg)  
+   ![Daftar Pengguna Online](dokumentasi-apk/06-daftar-pengguna-online.jpeg)  
    Halaman **Daftar Pengguna** saat koneksi internet aktif, menampilkan data pengguna (`Leanne Graham`, `Ervin Howell`, `Clementine Bauch`, dst.).
 
 7. **Daftar Pengguna (Mode Offline / Tanpa Koneksi)**  
-   ![Daftar Pengguna Offline Error](dokumentasi-apk/07-daftar-pengguna-offline-error.jpg)  
+   ![Daftar Pengguna Offline Error](dokumentasi-apk/07-daftar-pengguna-offline-error.jpeg)  
    Halaman **Daftar Pengguna** saat mode pesawat / tidak ada internet, menampilkan pesan gagal memuat (`Unable to resolve host "jsonplaceholder.typicode.com"`) dan `Toast` `"Periksa koneksi internet"`.
 
 ## Tujuan & Perbedaan Penyimpanan Lokal (SharedPreferences vs Room)
