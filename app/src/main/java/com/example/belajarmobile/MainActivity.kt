@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         val btnBatal = findViewById<Button>(R.id.btnBatal)
         val btnHapusSimpan = findViewById<Button>(R.id.btnHapusSimpan)
         val btnLihatPengguna = findViewById<Button>(R.id.btnLihatPengguna)
+        val btnLihatKutipan = findViewById<Button>(R.id.btnLihatKutipan)
 
         val prefs = getSharedPreferences(PREFS_PROFIL, Context.MODE_PRIVATE)
         val namaTersimpan = prefs.getString(KEY_NAMA_TERAKHIR, "") ?: ""
@@ -137,6 +138,11 @@ class MainActivity : AppCompatActivity() {
 
         btnLihatPengguna.setOnClickListener {
             val intent = Intent(this, UserListActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnLihatKutipan.setOnClickListener {
+            val intent = Intent(this, QuoteListActivity::class.java)
             startActivity(intent)
         }
     }

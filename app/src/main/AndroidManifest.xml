@@ -31,6 +31,11 @@
             android:name=".UserListActivity"
             android:exported="false" />
 
+        <!-- Pertemuan 10: halaman daftar kutipan dari API DummyJSON -->
+        <activity
+            android:name=".QuoteListActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
