@@ -47,7 +47,7 @@ Aplikasi Android **Kartu Profil** (`com.example.belajarmobile`) yang dikembangka
    Setelah aplikasi ditutup dan dibuka kembali, data tersimpan dari `SharedPreferences` terbaca kembali secara otomatis.
 
 5. **Layar Pertemuan 10 (Tombol Lihat Pengguna & Lihat Kutipan)**  
-   ![Layar Pertemuan 10](dokumentasi-apk/5-layar-pertemuan-10.jpeg)  
+   ![Layar Pertemuan 10](dokumentasi-apk/05-layar-pertemuan-10.jpeg)  
    Halaman utama **Profil Saya** yang sudah dilengkapi tombol **Lihat Pengguna** (`btnLihatPengguna`) dan **Lihat Kutipan** (`btnLihatKutipan`).
 
 6. **Daftar Pengguna (Mode Online)**  
